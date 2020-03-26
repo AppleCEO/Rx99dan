@@ -8,8 +8,13 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
+    let viewModel = RxViewModel()
+    var bag = DisposeBag()
+    
     let introduceLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .orange
@@ -28,6 +33,8 @@ class ViewController: UIViewController {
     }()
     let resultLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 50)
+        label.textAlignment = .center
         label.backgroundColor = .lightGray
         return label
     }()
@@ -38,6 +45,8 @@ class ViewController: UIViewController {
         
         addSubviews()
         makeConstraints()
+        binding()
+        danInputTextField.addTarget(self, action: #selector(ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
     }
 
     private func addSubviews() {
@@ -63,5 +72,31 @@ class ViewController: UIViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-20)
         }
     }
+    
+    private func binding() {
+        _ = viewModel.currentDan.asObservable().subscribe({ (currentDan) in
+        if let dan = currentDan.element {
+            guard let inputDan = Int(self.danInputTextField.text ?? "0") else {
+                return
+            }
+            guard dan != 0 else {
+                self.resultLabel.text = nil
+                return
+            }
+            let result = inputDan * dan
+            self.resultLabel.text = "\(inputDan) * \(dan) = \(result)"
+            if dan <= 3 {
+                self.resultLabel.backgroundColor = UIColor.gray
+            } else if dan <= 6 {
+                self.resultLabel.backgroundColor = UIColor.green
+            } else if dan <= 9 {
+                self.resultLabel.backgroundColor = UIColor.yellow
+            }
+        }
+        }).disposed(by: bag)
+    }
+    
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        self.viewModel.calculate99dan()
+    }
 }
-
