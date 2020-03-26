@@ -13,9 +13,11 @@
 		33AA117C240E801B00EB9D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33AA117A240E801B00EB9D0D /* Main.storyboard */; };
 		33AA117E240E801E00EB9D0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33AA117D240E801E00EB9D0D /* Assets.xcassets */; };
 		33AA1181240E801E00EB9D0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33AA117F240E801E00EB9D0D /* LaunchScreen.storyboard */; };
+		35E3A6AB14FC9CD6D4A291D3 /* Pods_gugudan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EA541DB2064F4CE679D86E /* Pods_gugudan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20E67F160BFC45E3F82D0981 /* Pods-gugudan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gugudan.debug.xcconfig"; path = "Target Support Files/Pods-gugudan/Pods-gugudan.debug.xcconfig"; sourceTree = "<group>"; };
 		33AA1171240E801B00EB9D0D /* gugudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gugudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33AA1174240E801B00EB9D0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33AA1176240E801B00EB9D0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		33AA117D240E801E00EB9D0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33AA1180240E801E00EB9D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33AA1182240E801E00EB9D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D25E3709C2B3FE01309612F /* Pods-gugudan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gugudan.release.xcconfig"; path = "Target Support Files/Pods-gugudan/Pods-gugudan.release.xcconfig"; sourceTree = "<group>"; };
+		F1EA541DB2064F4CE679D86E /* Pods_gugudan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gugudan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E3A6AB14FC9CD6D4A291D3 /* Pods_gugudan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				33AA1173240E801B00EB9D0D /* gugudan */,
 				33AA1172240E801B00EB9D0D /* Products */,
+				87B3B7885D1629AB8B9C7FE1 /* Pods */,
+				BDC79D26871A254DC31B5AFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = gugudan;
 			sourceTree = "<group>";
 		};
+		87B3B7885D1629AB8B9C7FE1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20E67F160BFC45E3F82D0981 /* Pods-gugudan.debug.xcconfig */,
+				4D25E3709C2B3FE01309612F /* Pods-gugudan.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BDC79D26871A254DC31B5AFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1EA541DB2064F4CE679D86E /* Pods_gugudan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33AA1185240E801E00EB9D0D /* Build configuration list for PBXNativeTarget "gugudan" */;
 			buildPhases = (
+				DD5C859493E1F46B71EF3281 /* [CP] Check Pods Manifest.lock */,
 				33AA116D240E801B00EB9D0D /* Sources */,
 				33AA116E240E801B00EB9D0D /* Frameworks */,
 				33AA116F240E801B00EB9D0D /* Resources */,
+				E825927599C2AE4287EEDF53 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DD5C859493E1F46B71EF3281 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gugudan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E825927599C2AE4287EEDF53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gugudan/Pods-gugudan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gugudan/Pods-gugudan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gugudan/Pods-gugudan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		33AA116D240E801B00EB9D0D /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		33AA1186240E801E00EB9D0D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20E67F160BFC45E3F82D0981 /* Pods-gugudan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +370,7 @@
 		};
 		33AA1187240E801E00EB9D0D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D25E3709C2B3FE01309612F /* Pods-gugudan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
