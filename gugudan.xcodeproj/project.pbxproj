@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33633FAF242CF31F0020131D /* RxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33633FAE242CF31F0020131D /* RxViewModel.swift */; };
-		33633FB1242CF3890020131D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33633FB0242CF3890020131D /* Model.swift */; };
+		33304ACC242F010100A01097 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33304ACB242F010100A01097 /* ResultViewModel.swift */; };
 		33AA1175240E801B00EB9D0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AA1174240E801B00EB9D0D /* AppDelegate.swift */; };
 		33AA1177240E801B00EB9D0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AA1176240E801B00EB9D0D /* SceneDelegate.swift */; };
 		33AA1179240E801B00EB9D0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AA1178240E801B00EB9D0D /* ViewController.swift */; };
@@ -20,8 +19,7 @@
 
 /* Begin PBXFileReference section */
 		20E67F160BFC45E3F82D0981 /* Pods-gugudan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gugudan.debug.xcconfig"; path = "Target Support Files/Pods-gugudan/Pods-gugudan.debug.xcconfig"; sourceTree = "<group>"; };
-		33633FAE242CF31F0020131D /* RxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxViewModel.swift; sourceTree = "<group>"; };
-		33633FB0242CF3890020131D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		33304ACB242F010100A01097 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		33AA1171240E801B00EB9D0D /* gugudan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gugudan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33AA1174240E801B00EB9D0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33AA1176240E801B00EB9D0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,12 +68,11 @@
 				33AA1174240E801B00EB9D0D /* AppDelegate.swift */,
 				33AA1176240E801B00EB9D0D /* SceneDelegate.swift */,
 				33AA1178240E801B00EB9D0D /* ViewController.swift */,
+				33304ACB242F010100A01097 /* ResultViewModel.swift */,
 				33AA117A240E801B00EB9D0D /* Main.storyboard */,
 				33AA117D240E801E00EB9D0D /* Assets.xcassets */,
 				33AA117F240E801E00EB9D0D /* LaunchScreen.storyboard */,
 				33AA1182240E801E00EB9D0D /* Info.plist */,
-				33633FAE242CF31F0020131D /* RxViewModel.swift */,
-				33633FB0242CF3890020131D /* Model.swift */,
 			);
 			path = gugudan;
 			sourceTree = "<group>";
@@ -212,10 +209,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33633FB1242CF3890020131D /* Model.swift in Sources */,
+				33304ACC242F010100A01097 /* ResultViewModel.swift in Sources */,
 				33AA1179240E801B00EB9D0D /* ViewController.swift in Sources */,
 				33AA1175240E801B00EB9D0D /* AppDelegate.swift in Sources */,
-				33633FAF242CF31F0020131D /* RxViewModel.swift in Sources */,
 				33AA1177240E801B00EB9D0D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

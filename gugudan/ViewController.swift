@@ -12,8 +12,9 @@ import RxSwift
 import RxCocoa
 
 class ViewController: UIViewController {
-    let viewModel = RxViewModel()
-    var bag = DisposeBag()
+    private var viewModel: ResultListViewModel = ResultListViewModel()
+
+    let disposeBag = DisposeBag()
     
     let introduceLabel: UILabel = {
         let label = UILabel()
@@ -31,13 +32,7 @@ class ViewController: UIViewController {
         textField.borderStyle = .line
         return textField
     }()
-    let resultLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 50)
-        label.textAlignment = .center
-        label.backgroundColor = .lightGray
-        return label
-    }()
+    let resultTableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +41,12 @@ class ViewController: UIViewController {
         addSubviews()
         makeConstraints()
         binding()
-        danInputTextField.addTarget(self, action: #selector(ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
     }
 
     private func addSubviews() {
         self.view.addSubview(self.introduceLabel)
         self.view.addSubview(self.danInputTextField)
-        self.view.addSubview(self.resultLabel)
+        self.view.addSubview(self.resultTableView)
     }
     
     private func makeConstraints() {
@@ -64,39 +58,26 @@ class ViewController: UIViewController {
         }
         self.danInputTextField.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self.introduceLabel)
-            make.bottom.equalTo(self.resultLabel.snp.top).offset(-20)
+            make.bottom.equalTo(self.resultTableView.snp.top).offset(-20)
             make.height.equalTo(30)
         }
-        self.resultLabel.snp.makeConstraints { make in
+        self.resultTableView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self.introduceLabel)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-20)
         }
     }
     
     private func binding() {
-        _ = viewModel.currentDan.asObservable().subscribe({ (currentDan) in
-        if let dan = currentDan.element {
-            guard let inputDan = Int(self.danInputTextField.text ?? "0") else {
-                return
+        self.danInputTextField.rx.text.orEmpty
+            .map { $0 as String }
+            .bind(to: self.viewModel.dan)
+            .disposed(by: disposeBag)
+        
+        self.viewModel.result.bind(to: resultTableView.rx.items) { (tableView: UITableView, index: Int, element: String) -> UITableViewCell in
+                let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+                cell.textLabel?.text = element
+                return cell
             }
-            guard dan != 0 else {
-                self.resultLabel.text = nil
-                return
-            }
-            let result = inputDan * dan
-            self.resultLabel.text = "\(inputDan) * \(dan) = \(result)"
-            if dan <= 3 {
-                self.resultLabel.backgroundColor = UIColor.gray
-            } else if dan <= 6 {
-                self.resultLabel.backgroundColor = UIColor.green
-            } else if dan <= 9 {
-                self.resultLabel.backgroundColor = UIColor.yellow
-            }
+            .disposed(by: disposeBag)
         }
-        }).disposed(by: bag)
-    }
-    
-    @objc private func textFieldDidChange(_ textField: UITextField) {
-        self.viewModel.calculate99dan()
-    }
 }
