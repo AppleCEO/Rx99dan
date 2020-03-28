@@ -11,11 +11,10 @@ import RxSwift
 import RxCocoa
 
 struct ResultListViewModel {
-    var model = BehaviorRelay(value: 0)
-    let disposeBag = DisposeBag()
-    
+    private var model = BehaviorRelay(value: 0)
     let dan = BehaviorRelay(value: "")
     var result = BehaviorRelay(value: [String]())
+    let disposeBag = DisposeBag()
     
     init() {
         self.dan
